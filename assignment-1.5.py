@@ -10,17 +10,17 @@ from __future__ import division, print_function
 
 
 # my_filter
-# May be quite primitive, but I can do nothing more interesting
 
 
 def my_filter(fn, elements, **kwargs):
-    all_results = []
-    for element in elements:
-        all_results.append(fn(element, kwargs))
+    """
+    function as a filter in __builtins__
+    """
     true_results = []
-    for result in all_results:
-        if bool(result) == True:
-            true_results.append(result)
+    for element in elements:
+        result = fn(element, **kwargs)
+        if result:
+           true_results.append(result)
     return true_results
 
 
